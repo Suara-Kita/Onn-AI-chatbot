@@ -39,16 +39,19 @@ function toYouTubeEmbedUrl(url: string): string {
 }
 
 export default function Home() {
-  const [stats, setStats] = useState<Stats>({ questions: null, maklumBalas: null });
+  const [stats, setStats] = useState<Stats>({
+    questions: null,
+    maklumBalas: null,
+  });
   const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
-    const controller = new AbortController()
-    fetch('/api/stats', { signal: controller.signal })
-      .then(r => r.json())
-      .then(d => setStats(d))
-      .catch(() => {})
-    return () => controller.abort()
+    const controller = new AbortController();
+    fetch("/api/stats", { signal: controller.signal })
+      .then((r) => r.json())
+      .then((d) => setStats(d))
+      .catch(() => {});
+    return () => controller.abort();
   }, []);
   const [isLoading, setIsLoading] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
@@ -175,9 +178,6 @@ export default function Home() {
         >
           <ShareButton />
         </div>*/}
-        <SupportShare />
-
-        <ManifestoCard />
 
         {/* YouTube Live */}
         <div
@@ -240,7 +240,10 @@ export default function Home() {
             />
           </div>
           <a
-            href={process.env.NEXT_PUBLIC_YOUTUBE_LIVE_URL ?? "https://www.youtube.com/watch?v=yxslO3T3Hb4"}
+            href={
+              process.env.NEXT_PUBLIC_YOUTUBE_LIVE_URL ??
+              "https://www.youtube.com/watch?v=yxslO3T3Hb4"
+            }
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -342,6 +345,10 @@ export default function Home() {
             </a>
           </div>
         </div>
+
+        <SupportShare />
+
+        <ManifestoCard />
 
         <ManifestoList />
       </div>

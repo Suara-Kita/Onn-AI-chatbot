@@ -141,7 +141,7 @@ const CARDS: CardItem[] = [
     icon: <HomeIcon />,
     title: "Rumah Pertama",
     desc: "Bantuan & subsidi membeli rumah pertama",
-    question: "Bagaimana cara memohon rumah pertama?",
+    question: "Apakah bantuan rumah pertama kepada warga Johor?",
   },
   {
     icon: <UsersIcon />,
